@@ -1,17 +1,19 @@
 package config
 
-var (
-	Token string
-	BotPrefix string
-
-	config *Config
+import (
+	"fmt"
+	"os"
 )
 
-type Config struct {
-	TOKEN string `json:"TOKEN"`
-	BOT_PREFIX string `json:"BOT_PREFIX"`
-}
+var (
+	Token     string
+	BotPrefix string
+)
 
 func LoadConfig() error {
-	fmt.printLn("Loading config file")
+	fmt.Println("Loading env values")
+	Token = os.Getenv("TOKEN")
+	BotPrefix = os.Getenv("BOT_PREFIX")
+	fmt.Println("Successfully loaded env values")
+	return nil
 }

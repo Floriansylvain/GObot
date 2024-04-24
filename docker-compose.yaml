@@ -1,0 +1,6 @@
+services:
+  gobot:
+    build: .
+    environment:
+      - TOKEN=${TOKEN}
+      - BOT_PREFIX=${BOT_PREFIX}
